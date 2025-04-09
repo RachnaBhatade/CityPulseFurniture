@@ -5,52 +5,47 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-left: 1%;
   margin-right: 1%;
+  background-color: white;
 }
 
 #navTitle {
   color: #121212;
   font-size: 248%;
-  font-weight: 700;
-  width: 20%;
-  /* display: flex; */
-  /* @media screen and (min-width: 480px) {  
-    background-color: lightgreen;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-  } */
+  margin-right: 10%;
 }
 
 .navbarCls {
   text-decoration: none;
-  background-color: white;
   border-color: white;
   border-style: none;
+  margin-right: 5%;
 }
 
 #emptydiv {
-  margin-top: 40px;
-  margin-left: 0%;
-  height: 110px;
-  background-color: #d06a1d;
-  width: 20px;
+  margin-top: 2%;
+  width: 5%;
+  /* height: 90px; */
+  /* background-color: #d06a1d; */
 }
 
 #headinginfo {
-  width: 500px;
-  font-size: 48px;
-  font-weight: 400;
-  size: 48px;
-  line-height: 100%;
+  width: 400px;
+  font-size: 148%;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 1%;
+}
+#headinginfo2 {
+  width: 400px;
+  font-size: 100%;
+  text-align: center;
+  margin-top: 1%;
   float: left;
 }
 
 #greyRecImg {
   background-color: #e5e5e5;
   width: 220px;
-  margin-top: 260px;
+  margin-top: 100px;
   margin-bottom: 40px;
   padding-top: 110px;
 }
@@ -58,7 +53,7 @@
 #orangeRecImg {
   background-color: #efc7b0;
   width: 220px;
-  margin-top: 119px;
+  margin-top: 90px;
   margin-left: 20px;
   padding-bottom: 221px;
 }
