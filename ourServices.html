@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <link rel="stylesheet" href="global.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #e0e7ff 0%, #f4f4f9 100%);
+    }
+    .services-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 40px 30px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+      text-align: center;
+    }
+    .services-container h1 {
+      margin-bottom: 30px;
+      color: #007bff;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .service-card {
+      background: #f4f4f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 24px 18px 18px 18px;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(0,123,255,0.13);
+    }
+    .service-card img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      border: 2px solid #007bff;
+      background: #fff;
+    }
+    .service-card h3 {
+      color: #007bff;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .services-list {
+        gap: 18px;
+      }
+      .service-card {
+        width: 180px;
+        padding: 18px 8px 12px 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .services-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .service-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="services-container">
+    <h1>Our Services</h1>
+    <div class="services-list">
+      <div class="service-card">
+        <img src="Images/Chair1.png" alt="Custom Design">
+        <h3>Custom Furniture Design</h3>
+        <p>Get furniture tailored to your taste and space, designed by our expert team.</p>
+      </div>
+      <div class="service-card">
+        <img src="Images/empty-modern-room-with-furniture.jpg" alt="Repair & Restoration">
+        <h3>Repair & Restoration</h3>
+        <p>We restore and repair your beloved furniture to its original beauty and function.</p>
+      </div>
+      <div class="service-card">
+        <img src="Images/pexels-pixabay-416320.jpg" alt="Consultation">
+        <h3>Consultation</h3>
+        <p>Expert advice for home and office furniture selection and arrangement.</p>
+      </div>
+      <div class="service-card">
+        <img src="Images/chairLogo.png" alt="Delivery & Installation">
+        <h3>Delivery & Installation</h3>
+        <p>Fast and safe delivery with professional installation at your location.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

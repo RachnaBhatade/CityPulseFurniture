@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+  <style>
+    .dashboard-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: linear-gradient(135deg, #f4f4f9, #e0e7ff);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, button {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #uploadStatus {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Admin Dashboard</h2>
+    <form id="uploadForm">
+      <label for="chairTitle">Chair Title:</label>
+      <input type="text" id="chairTitle" placeholder="Enter title" required>
+
+      <label for="chairImage">Upload Chair Image:</label>
+      <input type="file" id="chairImage" accept="image/*" required>
+
+      <label for="chairPrice">Chair Price:</label>
+      <input type="text" id="chairPrice" placeholder="Enter price" required>
+
+      <label for="chairDescription">Chair Description:</label>
+      <textarea id="chairDescription" placeholder="Enter description" rows="4" required></textarea>
+
+      <button type="submit">Upload</button>
+    </form>
+    <div id="uploadStatus"></div>
+  </div>
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const title = document.getElementById('chairTitle').value;
+      const image = document.getElementById('chairImage').files[0];
+      const price = document.getElementById('chairPrice').value;
+      const description = document.getElementById('chairDescription').value;
+
+      if (title && image && price && description) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const chairData = {
+            title: title,
+            image: e.target.result,
+            price: price,
+            description: description
+          };
+
+          // Save to localStorage
+          const existingChairs = JSON.parse(localStorage.getItem('chairs')) || [];
+          existingChairs.push(chairData);
+          localStorage.setItem('chairs', JSON.stringify(existingChairs));
+
+          document.getElementById('uploadStatus').innerText = 'Upload successful!';
+        };
+        reader.readAsDataURL(image);
+      } else {
+        document.getElementById('uploadStatus').innerText = 'Please fill all fields!';
+      }
+    });
+  </script>
+</body>
+</html>
