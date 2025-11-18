@@ -5,13 +5,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us</title>
   <link rel="stylesheet" href="contactUs.css" />
+  <style>
+    body {
+      background: url('Images/contactUsBackground.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 950px;
+      margin: 50px auto;
+      padding: 50px 40px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(4px);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 35px;
+      color: #fff;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+    .contact-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .left, .right {
+      flex: 1 1 340px;
+      min-width: 320px;
+      background: transparent;
+      color: #fff;
+      padding: 30px 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .left h3, .right h3 {
+      margin-bottom: 22px;
+      color: #fff;
+      font-size: 1.3rem;
+    }
+    .right p {
+      margin: 12px 0;
+      line-height: 1.7;
+      color: #fff;
+      font-size: 1.08rem;
+    }
+    .input-field, .textarea-field {
+      color: #333;
+      background: rgba(244,244,249,0.7);
+      border: 1px solid #b3b3b3;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+    .input-field:focus, .textarea-field:focus {
+      border: 1.5px solid #007bff;
+      outline: none;
+    }
+    .textarea-field {
+      height: 110px;
+      resize: none;
+    }
+    .input-field::placeholder, .textarea-field::placeholder {
+      color: #111;
+      opacity: 1;
+    }
+    button {
+      background: linear-gradient(90deg, #007bff 60%, #6a82fb 100%);
+      color: white;
+      padding: 14px 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #0056b3 60%, #4e54c8 100%);
+    }
+    .left form {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-images {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 35px 0 0 0;
+      flex-wrap: wrap;
+    }
+    .contact-images img {
+      width: 160px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      background: #fff;
+      border: 2px solid #e0e7ff;
+    }
+    @media (max-width: 900px) {
+      .container {
+        padding: 30px 10px;
+      }
+      .contact-box {
+        gap: 20px;
+      }
+      .contact-images img {
+        width: 120px;
+        height: 90px;
+      }
+    }
+    @media (max-width: 700px) {
+      .contact-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .left, .right {
+        min-width: unset;
+        padding: 20px 10px;
+      }
+      .contact-images {
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h2>Contact Us</h2>
     <div class="contact-box">
       <div class="left">
-        <h3>Form</h3>
+        <h3>Send us a Message</h3>
         <form>
           <input type="text" class="input-field" placeholder="Name" required>
           <input type="email" class="input-field" placeholder="Email" required>
@@ -27,6 +158,11 @@
         <p><strong>Email:</strong> citypulsechair@gmail.com</p>
         <p><strong>Website:</strong> www.citypulsefurniture.com</p>
       </div>
+    </div>
+    <div class="contact-images">
+      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=400&q=80" alt="Modern Chair from Unsplash">
+      <img src="https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&w=400&h=300&fit=crop" alt="Designer Chair from Pexels">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Classic Chair from Unsplash">
     </div>
   </div>
 </body>

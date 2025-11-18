@@ -3,7 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>About Us</title>
+    <link rel="stylesheet" href="global.css">
+    <style>
+      body {
+        background: linear-gradient(120deg, #e0e7ff 0%, #f4f4f9 100%);
+        min-height: 100vh;
+      }
+      .about-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 50px 40px;
+        background: rgba(255,255,255,0.95);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+        text-align: center;
+      }
+      .about-title {
+        color: #007bff;
+        font-size: 2.3rem;
+        margin-bottom: 18px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .about-desc {
+        font-size: 1.15rem;
+        color: #444;
+        margin-bottom: 30px;
+        line-height: 1.7;
+      }
+      .about-img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 24px;
+        border: 4px solid #007bff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        background: #fff;
+      }
+      .about-highlight {
+        background: linear-gradient(90deg, #007bff 60%, #6a82fb 100%);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        letter-spacing: 1px;
+      }
+      @media (max-width: 700px) {
+        .about-container {
+          padding: 20px 5px;
+        }
+        .about-img {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="about-container">
+      <img src="Images/Chair1.png" alt="City Pulse Furniture" class="about-img">
+      <div class="about-title">About City Pulse Furniture</div>
+      <div class="about-desc">
+        City Pulse Furniture is your trusted partner in creating beautiful, functional, and comfortable spaces. Established in Pune, we specialize in providing timeless, classic, and chic furniture for homes and offices. Our mission is to deliver high-quality, durable, and stylish furniture that fits every taste and budget.<br><br>
+        <span class="about-highlight">Why Choose Us?</span><br>
+        <b>• Wide Range:</b> From modern chairs to elegant sofas and classic armchairs, our collection is curated to suit every need.<br>
+        <b>• Customization:</b> We offer custom furniture design to bring your vision to life.<br>
+        <b>• Quality Assurance:</b> Every piece is crafted with care, using premium materials for lasting comfort and style.<br>
+        <b>• Customer Focus:</b> Our team is dedicated to providing exceptional service, from consultation to delivery and installation.<br><br>
+        Transform your space with City Pulse Furniture – where comfort meets style and quality is guaranteed.
+      </div>
+    </div>
+  </body>
 </html>
