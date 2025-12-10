@@ -3,115 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
+  <title>Admin Dashboard - City Pulse Furniture</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="admin.css">
-  <style>
-    .dashboard-container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 30px;
-      background: linear-gradient(135deg, #f4f4f9, #e0e7ff);
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    h2 {
-      text-align: center;
-      color: #333;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input, textarea, button {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-
-    button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    #uploadStatus {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #28a745;
-    }
-  </style>
 </head>
 <body>
-  <div class="dashboard-container">
-    <h2>Admin Dashboard</h2>
-    <form id="uploadForm">
-      <label for="chairTitle">Chair Title:</label>
-      <input type="text" id="chairTitle" placeholder="Enter title" required>
+  <div id="nav-container"></div>
+  
+  <main class="admin-main">
+    <div class="dashboard-header">
+      <h1>Admin Dashboard</h1>
+      <p>Manage your furniture inventory</p>
+    </div>
 
-      <label for="chairImage">Upload Chair Image:</label>
-      <input type="file" id="chairImage" accept="image/*" required>
+    <div class="dashboard-container">
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="add">Add Product</button>
+        <button class="tab-btn" data-tab="manage">Manage Products</button>
+      </div>
 
-      <label for="chairPrice">Chair Price:</label>
-      <input type="text" id="chairPrice" placeholder="Enter price" required>
+      <!-- Add Product Tab -->
+      <div class="tab-content active" id="addTab">
+        <div class="form-container">
+          <h2>Add New Furniture</h2>
+          <form id="uploadForm">
+            <div class="form-group">
+              <label for="chairTitle">Product Title:</label>
+              <input type="text" id="chairTitle" placeholder="Enter product title" required>
+            </div>
 
-      <label for="chairDescription">Chair Description:</label>
-      <textarea id="chairDescription" placeholder="Enter description" rows="4" required></textarea>
+            <div class="form-group">
+              <label for="chairImage">Upload Product Image:</label>
+              <input type="file" id="chairImage" accept="image/*" required>
+              <div class="image-preview" id="imagePreview"></div>
+            </div>
 
-      <button type="submit">Upload</button>
-    </form>
-    <div id="uploadStatus"></div>
+            <div class="form-group">
+              <label for="chairPrice">Product Price:</label>
+              <input type="text" id="chairPrice" placeholder="e.g., $100" required>
+            </div>
+
+            <div class="form-group">
+              <label for="chairDescription">Product Description:</label>
+              <textarea id="chairDescription" placeholder="Enter product description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="chairBadge">Badge Type:</label>
+              <select id="chairBadge">
+                <option value="best-seller">Best Seller</option>
+                <option value="new-arrival">New Arrival</option>
+                <option value="classic">Classic</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Product</button>
+          </form>
+          <div id="uploadStatus"></div>
+        </div>
+      </div>
+
+      <!-- Manage Products Tab -->
+      <div class="tab-content" id="manageTab">
+        <div class="products-list">
+          <h2>Manage Products</h2>
+          <div id="productsContainer">
+            <div class="loading" id="loadingProducts">Loading products...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Edit Product Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Product</h2>
+        <button class="modal-close" id="closeEditModal">&times;</button>
+      </div>
+      <form id="editForm">
+        <input type="hidden" id="editId">
+        <div class="form-group">
+          <label>Product Title:</label>
+          <input type="text" id="editTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Product Price:</label>
+          <input type="text" id="editPrice" required>
+        </div>
+        <div class="form-group">
+          <label>Product Description:</label>
+          <textarea id="editDescription" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Badge Type:</label>
+          <select id="editBadge">
+            <option value="best-seller">Best Seller</option>
+            <option value="new-arrival">New Arrival</option>
+            <option value="classic">Classic</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <script>
-    document.getElementById('uploadForm').addEventListener('submit', function(event) {
-      event.preventDefault();
 
-      const title = document.getElementById('chairTitle').value;
-      const image = document.getElementById('chairImage').files[0];
-      const price = document.getElementById('chairPrice').value;
-      const description = document.getElementById('chairDescription').value;
-
-      if (title && image && price && description) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const chairData = {
-            title: title,
-            image: e.target.result,
-            price: price,
-            description: description
-          };
-
-          // Save to localStorage
-          const existingChairs = JSON.parse(localStorage.getItem('chairs')) || [];
-          existingChairs.push(chairData);
-          localStorage.setItem('chairs', JSON.stringify(existingChairs));
-
-          document.getElementById('uploadStatus').innerText = 'Upload successful!';
-        };
-        reader.readAsDataURL(image);
-      } else {
-        document.getElementById('uploadStatus').innerText = 'Please fill all fields!';
-      }
-    });
-  </script>
+  <script src="shared.js"></script>
+  <script src="adminDashboard.js"></script>
 </body>
 </html>

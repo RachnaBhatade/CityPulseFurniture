@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
+    <title>About Us - City Pulse Furniture</title>
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="shared.css">
     <link rel="stylesheet" href="global.css">
     <style>
       body {
@@ -13,11 +15,32 @@
       .about-container {
         max-width: 900px;
         margin: 50px auto;
-        padding: 50px 40px;
-        background: rgba(255,255,255,0.95);
-        border-radius: 16px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+        padding: 60px 50px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248, 249, 250, 0.98) 100%);
+        border-radius: 24px;
+        box-shadow: 0 16px 48px rgba(102, 126, 234, 0.15),
+                    0 4px 16px rgba(0, 0, 0, 0.1);
         text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .about-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      
+      .about-container > * {
+        position: relative;
+        z-index: 1;
       }
       .about-title {
         color: #007bff;
@@ -34,14 +57,29 @@
         line-height: 1.7;
       }
       .about-img {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
         border-radius: 50%;
         margin-bottom: 24px;
-        border: 4px solid #007bff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-        background: #fff;
+        border: 5px solid;
+        border-image: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) 1;
+        box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3),
+                    0 4px 12px rgba(0,0,0,0.15);
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: imageGlow 3s ease-in-out infinite;
+      }
+      
+      .about-img:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 16px 50px rgba(102, 126, 234, 0.4),
+                    0 6px 16px rgba(0,0,0,0.2);
+      }
+      
+      @keyframes imageGlow {
+        0%, 100% { box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3), 0 4px 12px rgba(0,0,0,0.15); }
+        50% { box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5), 0 4px 12px rgba(0,0,0,0.15); }
       }
       .about-highlight {
         background: linear-gradient(90deg, #007bff 60%, #6a82fb 100%);
@@ -67,6 +105,7 @@
     </style>
   </head>
   <body>
+    <div id="nav-container"></div>
     <div class="about-container">
       <img src="Images/Chair1.png" alt="City Pulse Furniture" class="about-img">
       <div class="about-title">About City Pulse Furniture</div>
@@ -80,5 +119,6 @@
         Transform your space with City Pulse Furniture – where comfort meets style and quality is guaranteed.
       </div>
     </div>
+    <script src="shared.js"></script>
   </body>
 </html>

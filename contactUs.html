@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us</title>
+  <title>Contact Us - City Pulse Furniture</title>
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="shared.css" />
   <link rel="stylesheet" href="contactUs.css" />
   <style>
     body {
@@ -14,11 +16,32 @@
     .container {
       max-width: 950px;
       margin: 50px auto;
-      padding: 50px 40px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.35);
-      backdrop-filter: blur(4px);
+      padding: 60px 50px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2),
+                  0 4px 16px rgba(102, 126, 234, 0.15);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .container > * {
+      position: relative;
+      z-index: 1;
     }
     h2 {
       text-align: center;
@@ -102,13 +125,26 @@
       flex-wrap: wrap;
     }
     .contact-images img {
-      width: 160px;
-      height: 120px;
+      width: 180px;
+      height: 140px;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-      background: #fff;
-      border: 2px solid #e0e7ff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+                  0 2px 8px rgba(102, 126, 234, 0.1);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border: 3px solid rgba(224, 231, 255, 0.8);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: brightness(0.95) contrast(1.05);
+    }
+    
+    .contact-images img:hover {
+      transform: scale(1.15) rotate(3deg);
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3),
+                  0 4px 16px rgba(0, 0, 0, 0.2);
+      border-color: rgba(102, 126, 234, 0.6);
+      filter: brightness(1.05) contrast(1.1) saturate(1.1);
+      z-index: 10;
+      position: relative;
     }
     @media (max-width: 900px) {
       .container {
@@ -138,6 +174,7 @@
   </style>
 </head>
 <body>
+  <div id="nav-container"></div>
   <div class="container">
     <h2>Contact Us</h2>
     <div class="contact-box">
@@ -165,5 +202,7 @@
       <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Classic Chair from Unsplash">
     </div>
   </div>
+  <script src="shared.js"></script>
+  <script src="contactUs.js"></script>
 </body>
 </html>

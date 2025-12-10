@@ -1,0 +1,21 @@
+/* Google Fonts Import for Interior Design Theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Fallback font stack */
+* {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.feature-item h3,
+.furniture-item h3,
+.product-title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+body, p, span, a, button, input, textarea, select {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+

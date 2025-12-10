@@ -3,35 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Furniture Catalog</title>
+    <title>City Pulse Furniture - Home</title>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="shared.css" />
     <link rel="stylesheet" href="index.css" />
-    <script src="index.js"></script>
   </head>
   <body>
-    <header>
-      <div id="navbar">
-        <a id="navTitle">City Pulse Furniture</a>
-        <a href="aboutUs.html" class="navbarCls" target="_main">About Us</a>
-        <a href="furniture.html" class="navbarCls" target="_main">Furniture</a>
-        <a href="ourServices.html" class="navbarCls" target="_main"
-          >Our Services</a
-        >
-        <a href="contactUs.html" class="navbarCls" target="_main">Contact Us</a>
-        <a href="adminLogin.html" class="navbarCls" target="_main" style="color: #dc3545; font-weight: bold;">Admin</a>
-      </div>
-    </header>
+    <div id="nav-container"></div>
     <main>
-      <!-- <div id="emptydiv"></div> -->
-      <img id="emptydiv" alt="chair" src="Images/ChairLogo.png" />
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">LIMELESS. CLASSIC. CHIC.</h1>
+            <p class="hero-subtitle">
+              Modern high quality and comfortable furniture available in our
+              stores
+            </p>
+            <a href="furniture.html" class="btn btn-primary hero-cta"
+              >Explore Collection</a
+            >
+          </div>
+          <div class="hero-image">
+            <img src="Images/ChairLogo.jpg" alt="City Pulse Furniture Logo" />
+          </div>
+        </div>
+      </section>
 
-      <p id="headinginfo">LIMELESS. CLASSIC. CHIC.</p>
-      <p id="headinginfo2">
-        Modern high quality and comfortable available on our stores
-      </p>
+      <section class="featured-section">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="featured-grid">
+          <div class="featured-card grey-card">
+            <img src="Images/Chair1.png" alt="Modern Chair" />
+            <div class="card-overlay">
+              <h3>Modern Collection</h3>
+              <p>Sleek and contemporary designs</p>
+            </div>
+          </div>
+          <div class="featured-card orange-card">
+            <img src="Images/Chair1.png" alt="Classic Chair" />
+            <div class="card-overlay">
+              <h3>Classic Collection</h3>
+              <p>Timeless elegance and comfort</p>
+            </div>
+          </div>
+          <div class="featured-card blue-card">
+            <img src="Images/Chair1.png" alt="Chic Chair" />
+            <div class="card-overlay">
+              <h3>Chic Collection</h3>
+              <p>Stylish and sophisticated pieces</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <img id="greyRecImg" alt="chair" src="Images/Chair1.png" />
-      <img id="orangeRecImg" alt="chair" src="Images/Chair1.png" />
-      <img id="blueRecImg" alt="chair" src="Images/Chair1.png" />
+      <section class="features-section">
+        <div class="features-container">
+          <div class="feature-item">
+            <div class="feature-icon">🚚</div>
+            <h3>Free Delivery</h3>
+            <p>Fast and reliable delivery service</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔧</div>
+            <h3>Installation</h3>
+            <p>Professional installation included</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <h3>Quality Guarantee</h3>
+            <p>Premium materials and craftsmanship</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💬</div>
+            <h3>24/7 Support</h3>
+            <p>Always here to help you</p>
+          </div>
+        </div>
+      </section>
     </main>
+    <script src="shared.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
